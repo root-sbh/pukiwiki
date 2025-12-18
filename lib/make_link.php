@@ -427,12 +427,11 @@ EOD;
 		}
 		// Add: Support Open in new Window/Tab
 		// See: https://dajya-ranger.com/pukiwiki/link-target-blank/
-		$this->alias = htmlspecialchars_decode($this->alias);
-		if (preg_match('/(.*)>$/', $this->alias, $match_array)) {
-			return '<a href="' . $this->name . '" target="_blank" ' . $rel . '>' . $match_array[1] . '</a>';
-		} else {
-			return '<a href="' . $this->name . '"' . $rel . '>' . $this->alias . '</a>';
+		if (str_ends_with($this->alias, '&gt;')) {
+			$this->alias = substr($this->alias, 0, -4);
+			$rel .= ' target="_blank"';
 		}
+		return '<a href="' . $this->name . '"' . $rel . '>' . $this->alias . '</a>';
 	}
 }
 
@@ -883,18 +882,14 @@ function make_pagelink($page, $alias = '', $anchor = '', $refer = '', $isautolin
 		}
 		// Add: Support Open in new Window/Tab
 		// See: https://dajya-ranger.com/pukiwiki/link-target-blank/
-		$s_alias = htmlspecialchars_decode($s_alias);
-		if (preg_match('/(.*)>$/', $s_alias, $match_array)) {
-			return $al_left . '<a ' . 'href="' . get_page_uri($page) . $anchor .
-				'"' . $title_attr_html . ' class="' .
-				$attrs['class'] . '" data-mtime="' . $attrs['data_mtime'] .
-				'" target="_blank" ' . '">' . $match_array[1] . '</a>' . $al_right;
-		} else {
-			return $al_left . '<a ' . 'href="' . get_page_uri($page) . $anchor .
-				'"' . $title_attr_html . ' class="' .
-				$attrs['class'] . '" data-mtime="' . $attrs['data_mtime'] .
-				'">' . $s_alias . '</a>' . $al_right;
+		if (str_ends_with($s_alias, '&gt;')) {
+			$s_alias = substr($s_alias, 0, -4);
+			$title_attr_html .= ' target="_blank"';
 		}
+		return $al_left . '<a ' . 'href="' . get_page_uri($page) . $anchor .
+			'"' . $title_attr_html . ' class="' .
+			$attrs['class'] . '" data-mtime="' . $attrs['data_mtime'] .
+			'">' . $s_alias . '</a>' . $al_right;
 	} else {
 		// Support Page redirection
 		$r_page  = rawurlencode($page);
