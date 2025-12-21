@@ -148,6 +148,19 @@ $rightbar_name = 'RightBar';     // RightBar
 //$pkwk_dtd = PKWK_DTD_HTML_4_01_TRANSITIONAL;
 
 /////////////////////////////////////////////////
+// Google recaptcha v3 Settings(recaptcha3.inc.php)
+
+define('PLUGIN_RECAPTCHA3_SITE_KEY',       '');   // Google reCAPTCHA v3 サイトキー。空の場合、reCAPTCHA判定は実施されない
+define('PLUGIN_RECAPTCHA3_SECRET_KEY',     '');   // Google reCAPTCHA v3 シークレットキー。空の場合、reCAPTCHA判定は実施されない
+define('PLUGIN_RECAPTCHA3_ALLOW_USERS',    array(
+    'admin',
+));// reCAPTCHAなしでのPOSTを許可するユーザーを指定
+define('PLUGIN_RECAPTCHA3_ALLOW_GROUPS',    array(
+    // 'valid-user',
+    'valid-user',
+));   // reCAPTCHAなしでのPOSTを許可するグループを指定
+
+/////////////////////////////////////////////////
 // Always output "nofollow,noindex" attribute
 
 $nofollow = 0; // 1 = Try hiding from search engines
