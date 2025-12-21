@@ -492,7 +492,7 @@ function plugin_secedit_should_display_editlink($page, $callcount)
 		return false;
 	}
 
-	if (! (isset($vars) && isset($vars['cmd']) && $vars['cmd'] === 'read' && ! $retvars['body'])) {
+	if (! (isset($vars['cmd']) && $vars['cmd'] === 'read' && ! empty($retvars) && ! $retvars['body'])) {
 		return false;
 	}
 
