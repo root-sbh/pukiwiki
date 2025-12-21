@@ -14,45 +14,45 @@ $colorcheckbox.prop("checked", darkmode);
 
 // display mode change(sp -> pc)
 window.matchMedia('(max-width: 767px)').onchange = (e) => {
-    if (!e.matches) calcLogoSize();
+  if (!e.matches) calcLogoSize();
 }
 
 // Window Size Event Listener(sp)
-window.addEventListener('resize',function(){
-    calcContentsHeight();
+window.addEventListener('resize', function () {
+  calcContentsHeight();
 });
 
 // CSS selector switch
 $colorcheckbox.change(function () {
-    changeStyleSheet($colorcheckbox.prop("checked"));
-    Cookies.set('pkwk-darkmode', ($colorcheckbox.prop("checked") ? 1 : 0), {expires: 180});
+  changeStyleSheet($colorcheckbox.prop("checked"));
+  Cookies.set('pkwk-darkmode', ($colorcheckbox.prop("checked") ? 1 : 0), { expires: 180 });
 });
 
 
 // define functions
 function changeStyleSheet(mode) {
-    if(mode) {
-        $stylesheet.attr('href', dir+'adv_like.color.dark.css');
-    } else {
-        $stylesheet.attr('href', dir+'adv_like.color.light.css');
-    }
+  if (mode) {
+    $stylesheet.attr('href', dir + 'adv_like.color.dark.css');
+  } else {
+    $stylesheet.attr('href', dir + 'adv_like.color.light.css');
+  }
 }
 
 function calcContentsHeight() {
-    var navi_height = $spnavi.outerHeight(true);
-    var header_height =$spheader.outerHeight(true);
+  var navi_height = $spnavi.outerHeight(true);
+  var header_height = $spheader.outerHeight(true);
 
-    $spnavi.css('margin-top', -navi_height-1+"px");
-    $spnavi.css('top', (header_height-navi_height-1)+"px");
-    $contents.css('top', header_height+"px");
-    if (window.matchMedia("(max-width: 768px)").matches) {
-        $menubar_outer.css('top', header_height+"px");
-        $menubar.css('height', window.innerHeight-header_height-($menubar.innerHeight()-$menubar.height())+"px");
-    } else {
-        $menubar.css('height', 'auto');
-    }
+  $spnavi.css('margin-top', -navi_height - 1 + "px");
+  $spnavi.css('top', (header_height - navi_height - 1) + "px");
+  $contents.css('top', header_height + "px");
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    $menubar_outer.css('top', header_height + "px");
+    $menubar.css('height', window.innerHeight - header_height - ($menubar.innerHeight() - $menubar.height()) + "px");
+  } else {
+    $menubar.css('height', 'auto');
+  }
 }
 
 function calcLogoSize() {
-    $logo.width($logo.outerHeight(true));
+  $logo.width($logo.outerHeight(true));
 }

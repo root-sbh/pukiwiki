@@ -26,11 +26,11 @@
 		<?php if ($enable_logout) { ?><li><?php _navigator('logout') ?></li><?php } ?>
 		<li>|</li>
 		<label for="color_mode_switch" class="color_switch">
-  			<span class="color_switch_title">Color:&nbsp;</span>
-  			<div class="switch">
+			<span class="color_switch_title">Color:&nbsp;</span>
+			<div class="switch">
 				<div class="circle"></div>
-  				<div class="slider"></div>
-  			</div>
- 		</label>
+				<div class="slider"></div>
+			</div>
+		</label>
 	</ul>
 <?php } // PKWK_SKIN_SHOW_NAVBAR ?>

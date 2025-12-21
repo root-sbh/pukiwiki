@@ -40,9 +40,9 @@ if (! defined('UI_LANG')) die('UI_LANG is not set');
 if (! isset($_LANG)) die('$_LANG is not set');
 if (! defined('PKWK_READONLY')) die('PKWK_READONLY is not set');
 
-$lang  = & $_LANG['skin'];
-$link  = & $_LINK;
-$image = & $_IMAGE['skin'];
+$lang  = &$_LANG['skin'];
+$link  = &$_LINK;
+$image = &$_IMAGE['skin'];
 $rw    = ! PKWK_READONLY;
 
 $current_url = $_SERVER['REQUEST_URI'];
@@ -70,210 +70,238 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo LANG ?>">
+
 <head>
- <meta http-equiv="Content-Type" content="text/html; charset=<?php echo CONTENT_CHARSET ?>" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-<?php if ($nofollow || ! $is_read)  { ?> <meta name="robots" content="NOINDEX,NOFOLLOW" /><?php } ?>
-<?php if ($html_meta_referrer_policy) { ?> <meta name="referrer" content="<?php echo htmlsc($html_meta_referrer_policy) ?>" /><?php } ?>
+	<meta http-equiv="Content-Type" content="text/html; charset=<?php echo CONTENT_CHARSET ?>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<?php if ($nofollow || ! $is_read) { ?>
+		<meta name="robots" content="NOINDEX,NOFOLLOW" /><?php } ?>
+	<?php if ($html_meta_referrer_policy) { ?>
+		<meta name="referrer" content="<?php echo htmlsc($html_meta_referrer_policy) ?>" /><?php } ?>
 
- <title><?php echo $title ?> - <?php echo $page_title ?></title>
+	<title><?php echo $title ?> - <?php echo $page_title ?></title>
 
- <link rel="SHORTCUT ICON" href="<?php echo $image['favicon'] ?>" />
- <link rel="stylesheet" type="text/css" href="<?php echo SKIN_DIR ?>adv_like.css" />
- <link id="colorstyle" rel="stylesheet" type="text/css" href="<?php echo SKIN_DIR ?>adv_like.color.light.css" />
- <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $link['rss'] ?>" /><?php // RSS auto-discovery ?>
- <script type="text/javascript">
-	const dir = "<?php echo SKIN_DIR ?>";
-</script>
- <script type="text/javascript" src="skin/main.js" defer></script>
- <script type="text/javascript" src="skin/search2.js" defer></script>
- <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- <script type="text/javascript" src="<?php echo SKIN_DIR ?>adv_like.css.js"></script>
-<?php echo $head_tag ?>
+	<link rel="SHORTCUT ICON" href="<?php echo $image['favicon'] ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo SKIN_DIR ?>adv_like.css" />
+	<link id="colorstyle" rel="stylesheet" type="text/css" href="<?php echo SKIN_DIR ?>adv_like.color.light.css" />
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $link['rss'] ?>" /><?php // RSS auto-discovery 
+																										?>
+	<script type="text/javascript">
+		const dir = "<?php echo SKIN_DIR ?>";
+	</script>
+	<script type="text/javascript" src="skin/main.js" defer></script>
+	<script type="text/javascript" src="skin/search2.js" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.5/js.cookie.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="<?php echo SKIN_DIR ?>adv_like.css.js"></script>
+	<?php echo $head_tag ?>
 </head>
 
 <body>
-<?php echo $html_scripting_data ?>
+	<?php echo $html_scripting_data ?>
 
-<input type="checkbox" id="color_mode_switch">
-<input type="checkbox" class="openMenubar" id="openMenubar">
-<input type="checkbox" class="openNavibar" id="openNavibar">
+	<input type="checkbox" id="color_mode_switch">
+	<input type="checkbox" class="openMenubar" id="openMenubar">
+	<input type="checkbox" class="openNavibar" id="openNavibar">
 
-<div id="header">
- <div id="header-logo">
-  <a href="<?php echo $link['top'] ?>"><img id="logo" src="<?php echo IMAGE_DIR . $image['logo'] ?>" alt="<?php echo $page_title ?>" title="<?php echo $page_title ?>" /></a>
- </div>
- <div id="header-title">
- <label for="color_mode_switch" class="color_switch">
-  <span class="color_switch_title">Color:&nbsp;</span>
-  <div class="switch">
-	<div class="circle"></div>
-  	<div class="slider"></div>
-  </div>
- </label>
-  <h1 class="title"><a href="<?php echo $link['top'] ?>"><?php echo $page_title ?></a></h1>
+	<div id="header">
+		<div id="header-logo">
+			<a href="<?php echo $link['top'] ?>"><img id="logo" src="<?php echo IMAGE_DIR . $image['logo'] ?>" alt="<?php echo $page_title ?>" title="<?php echo $page_title ?>" /></a>
+		</div>
+		<div id="header-title">
+			<label for="color_mode_switch" class="color_switch">
+				<span class="color_switch_title">Color:&nbsp;</span>
+				<div class="switch">
+					<div class="circle"></div>
+					<div class="slider"></div>
+				</div>
+			</label>
+			<h1 class="title"><a href="<?php echo $link['top'] ?>"><?php echo $page_title ?></a></h1>
 
-  <?php if(SKIN_DEFAULT_DISABLE_TOPICPATH) { ?>
-   <h2 class="title"><a href="<?php echo $current_url ?>"><span class="small"><?php echo $title ?></span></a></h2>
-  <?php } else { ?>
-   <span class="small">
-   <?php require_once(PLUGIN_DIR . 'topicpath.inc.php'); echo plugin_topicpath_inline(); ?>
-   </span>
-  <?php } ?>
-  <div id="lastmodified">&nbsp;
-  <?php if ($lastmodified != '') { ?>
-   Last-modified: <?php echo $lastmodified ?><?php if ($is_freeze) { ?>&nbsp;<i class="fas fa-ban"></i><?php } ?>
-  <?php } ?>
-  </div>
- </div>
-</div>
+			<?php if (SKIN_DEFAULT_DISABLE_TOPICPATH) { ?>
+				<h2 class="title"><a href="<?php echo $current_url ?>"><span class="small"><?php echo $title ?></span></a></h2>
+			<?php } else { ?>
+				<span class="small">
+					<?php require_once(PLUGIN_DIR . 'topicpath.inc.php');
+					echo plugin_topicpath_inline(); ?>
+				</span>
+			<?php } ?>
+			<div id="lastmodified">&nbsp;
+				<?php if ($lastmodified != '') { ?>
+					Last-modified: <?php echo $lastmodified ?><?php if ($is_freeze) { ?>&nbsp;<i class="fas fa-ban"></i><?php } ?>
+			<?php } ?>
+			</div>
+		</div>
+	</div>
 
 
-<div id="sp-header">
-  <label for="openMenubar" class="menubarIconToggle">
-    <div class="openMenubarButton">Menu</div>
-  </label>
-  <div class="wikiPageTitle">
-	<a href="<?php echo $link['top'] ?>"><?php echo $page_title ?></a><br>
-	<span id="pagename"><a href="<?php echo $current_url ?>"><?php echo $title ?></a></span>
-  </div>
-  <label for="openNavibar" class="navibarIconToggle">
-	<div class="openNavibarButton">Navi</div>
-  </label>
-</div>
+	<div id="sp-header">
+		<label for="openMenubar" class="menubarIconToggle">
+			<div class="openMenubarButton">Menu</div>
+		</label>
+		<div class="wikiPageTitle">
+			<a href="<?php echo $link['top'] ?>"><?php echo $page_title ?></a><br>
+			<span id="pagename"><a href="<?php echo $current_url ?>"><?php echo $title ?></a></span>
+		</div>
+		<label for="openNavibar" class="navibarIconToggle">
+			<div class="openNavibarButton">Navi</div>
+		</label>
+	</div>
 
-<?php include("adv_like.nav.php"); ?>
-<div id="navigator">
-<?php include("adv_like.pc-nav.php"); ?>
-</div>
-<div id="sp-navigator">
- <?php include("adv_like.sp-nav.php"); ?>
-</div>
+	<?php include("adv_like.nav.php"); ?>
+	<div id="navigator">
+		<?php include("adv_like.pc-nav.php"); ?>
+	</div>
+	<div id="sp-navigator">
+		<?php include("adv_like.sp-nav.php"); ?>
+	</div>
 
-<?php echo $hr ?>
+	<?php echo $hr ?>
 
-<div id="contents">
- <div id="body">
-  <div id="topicpath"><?php require_once(PLUGIN_DIR . 'topicpath.inc.php'); echo plugin_topicpath_inline(); ?></div><?php echo $body ?>
- </div>
-<?php if ($menu) { ?>
- <div id="menubar-outer"><div id="menubar"><?php echo $menu ?></div></div>
-<?php } ?>
-<?php if ($rightbar) { ?>
- <div id="rightbar-outer"><div id="rightbar"><?php echo $rightbar ?></div></div>
-<?php } ?>
-</div>
+	<div id="contents">
+		<div id="body">
+			<div id="topicpath"><?php require_once(PLUGIN_DIR . 'topicpath.inc.php');
+								echo plugin_topicpath_inline(); ?></div><?php echo $body ?>
+		</div>
+		<?php if ($menu) { ?>
+			<div id="menubar-outer">
+				<div id="menubar"><?php echo $menu ?></div>
+			</div>
+		<?php } ?>
+		<?php if ($rightbar) { ?>
+			<div id="rightbar-outer">
+				<div id="rightbar"><?php echo $rightbar ?></div>
+			</div>
+		<?php } ?>
+	</div>
 
-<?php if ($notes != '') { ?>
-<div id="note"><?php echo $notes ?></div>
-<?php } ?>
-
-<?php if ($attaches != '') { ?>
-<div id="attach">
-<?php echo $hr ?>
-<?php echo $attaches ?>
-</div>
-<?php } ?>
-
-<?php echo $hr ?>
-
-<?php if (PKWK_SKIN_SHOW_TOOLBAR) { ?>
-<!-- Toolbar -->
-<div id="toolbar">
-<?php
-
-// Set toolbar-specific images
-$_IMAGE['skin']['reload']   = 'reload.png';
-$_IMAGE['skin']['new']      = 'new.png';
-$_IMAGE['skin']['edit']     = 'edit.png';
-$_IMAGE['skin']['freeze']   = 'freeze.png';
-$_IMAGE['skin']['unfreeze'] = 'unfreeze.png';
-$_IMAGE['skin']['diff']     = 'diff.png';
-$_IMAGE['skin']['upload']   = 'file.png';
-$_IMAGE['skin']['copy']     = 'copy.png';
-$_IMAGE['skin']['rename']   = 'rename.png';
-$_IMAGE['skin']['top']      = 'top.png';
-$_IMAGE['skin']['list']     = 'list.png';
-$_IMAGE['skin']['search']   = 'search.png';
-$_IMAGE['skin']['recent']   = 'recentchanges.png';
-$_IMAGE['skin']['backup']   = 'backup.png';
-$_IMAGE['skin']['help']     = 'help.png';
-$_IMAGE['skin']['rss']      = 'rss.png';
-$_IMAGE['skin']['rss10']    = & $_IMAGE['skin']['rss'];
-$_IMAGE['skin']['rss20']    = 'rss20.png';
-$_IMAGE['skin']['rdf']      = 'rdf.png';
-
-function _toolbar($key, $x = 20, $y = 20){
-	$lang  = & $GLOBALS['_LANG']['skin'];
-	$link  = & $GLOBALS['_LINK'];
-	$image = & $GLOBALS['_IMAGE']['skin'];
-	if (! isset($lang[$key]) ) { echo 'LANG NOT FOUND';  return FALSE; }
-	if (! isset($link[$key]) ) { echo 'LINK NOT FOUND';  return FALSE; }
-	if (! isset($image[$key])) { echo 'IMAGE NOT FOUND'; return FALSE; }
-
-	echo '<a href="' . $link[$key] . '">' .
-		'<img src="' . IMAGE_DIR . $image[$key] . '" width="' . $x . '" height="' . $y . '" ' .
-			'alt="' . $lang[$key] . '" title="' . $lang[$key] . '" />' .
-		'</a>';
-	return TRUE;
-}
-?>
- <?php _toolbar('top') ?>
-
-<?php if ($is_page) { ?>
- &nbsp;
- <?php if ($rw) { ?>
-	<?php _toolbar('edit') ?>
-	<?php if ($is_read && $function_freeze) { ?>
-		<?php if (! $is_freeze) { _toolbar('freeze'); } else { _toolbar('unfreeze'); } ?>
+	<?php if ($notes != '') { ?>
+		<div id="note"><?php echo $notes ?></div>
 	<?php } ?>
- <?php } ?>
- <?php _toolbar('diff') ?>
-<?php if ($do_backup) { ?>
-	<?php _toolbar('backup') ?>
-<?php } ?>
-<?php if ($rw) { ?>
-	<?php if ((bool)ini_get('file_uploads')) { ?>
-		<?php _toolbar('upload') ?>
+
+	<?php if ($attaches != '') { ?>
+		<div id="attach">
+			<?php echo $hr ?>
+			<?php echo $attaches ?>
+		</div>
 	<?php } ?>
-	<?php _toolbar('copy') ?>
-	<?php _toolbar('rename') ?>
-<?php } ?>
- <?php _toolbar('reload') ?>
-<?php } ?>
- &nbsp;
-<?php if ($rw) { ?>
-	<?php _toolbar('new') ?>
-<?php } ?>
- <?php _toolbar('list')   ?>
- <?php _toolbar('search') ?>
- <?php _toolbar('recent') ?>
- &nbsp; <?php _toolbar('help') ?>
- &nbsp; <?php _toolbar('rss10', 36, 14) ?>
-</div>
-<?php } // PKWK_SKIN_SHOW_TOOLBAR ?>
 
-<div id="sp-lastmodified">
-<?php if ($lastmodified != '') { ?>
-	<div id="lastmodified">Last-modified: <?php echo $lastmodified ?><?php if ($is_freeze) { ?>&nbsp;<i class="fas fa-ban"></i><?php } ?></div>
-<?php } ?>
-</div>
+	<?php echo $hr ?>
 
-<?php if ($related != '') { ?>
-<div id="related">Link: <?php echo $related ?></div>
-<?php } ?>
+	<?php if (PKWK_SKIN_SHOW_TOOLBAR) { ?>
+		<!-- Toolbar -->
+		<div id="toolbar">
+			<?php
 
-<div id="footer">
- Founded by: <a href="<?php echo $modifierlink ?>"><?php echo $modifier ?></a>
- <p>
- HTML convert time: <?php echo elapsedtime() ?> sec.<br>
- <?php echo S_COPYRIGHT ?>.
- <!-- Powered by PHP <?php echo PHP_VERSION ?>. -->
- </p>
-</div>
-<?php if (exist_plugin_convert('recaptcha3')) echo do_plugin_convert('recaptcha3'); // reCAPTCHA v3 plugin ?>
+			// Set toolbar-specific images
+			$_IMAGE['skin']['reload']   = 'reload.png';
+			$_IMAGE['skin']['new']      = 'new.png';
+			$_IMAGE['skin']['edit']     = 'edit.png';
+			$_IMAGE['skin']['freeze']   = 'freeze.png';
+			$_IMAGE['skin']['unfreeze'] = 'unfreeze.png';
+			$_IMAGE['skin']['diff']     = 'diff.png';
+			$_IMAGE['skin']['upload']   = 'file.png';
+			$_IMAGE['skin']['copy']     = 'copy.png';
+			$_IMAGE['skin']['rename']   = 'rename.png';
+			$_IMAGE['skin']['top']      = 'top.png';
+			$_IMAGE['skin']['list']     = 'list.png';
+			$_IMAGE['skin']['search']   = 'search.png';
+			$_IMAGE['skin']['recent']   = 'recentchanges.png';
+			$_IMAGE['skin']['backup']   = 'backup.png';
+			$_IMAGE['skin']['help']     = 'help.png';
+			$_IMAGE['skin']['rss']      = 'rss.png';
+			$_IMAGE['skin']['rss10']    = &$_IMAGE['skin']['rss'];
+			$_IMAGE['skin']['rss20']    = 'rss20.png';
+			$_IMAGE['skin']['rdf']      = 'rdf.png';
+
+			function _toolbar($key, $x = 20, $y = 20)
+			{
+				$lang  = &$GLOBALS['_LANG']['skin'];
+				$link  = &$GLOBALS['_LINK'];
+				$image = &$GLOBALS['_IMAGE']['skin'];
+				if (! isset($lang[$key])) {
+					echo 'LANG NOT FOUND';
+					return FALSE;
+				}
+				if (! isset($link[$key])) {
+					echo 'LINK NOT FOUND';
+					return FALSE;
+				}
+				if (! isset($image[$key])) {
+					echo 'IMAGE NOT FOUND';
+					return FALSE;
+				}
+
+				echo '<a href="' . $link[$key] . '">' .
+					'<img src="' . IMAGE_DIR . $image[$key] . '" width="' . $x . '" height="' . $y . '" ' .
+					'alt="' . $lang[$key] . '" title="' . $lang[$key] . '" />' .
+					'</a>';
+				return TRUE;
+			}
+			?>
+			<?php _toolbar('top') ?>
+
+			<?php if ($is_page) { ?>
+				&nbsp;
+				<?php if ($rw) { ?>
+					<?php _toolbar('edit') ?>
+					<?php if ($is_read && $function_freeze) { ?>
+						<?php if (! $is_freeze) {
+							_toolbar('freeze');
+						} else {
+							_toolbar('unfreeze');
+						} ?>
+					<?php } ?>
+				<?php } ?>
+				<?php _toolbar('diff') ?>
+				<?php if ($do_backup) { ?>
+					<?php _toolbar('backup') ?>
+				<?php } ?>
+				<?php if ($rw) { ?>
+					<?php if ((bool)ini_get('file_uploads')) { ?>
+						<?php _toolbar('upload') ?>
+					<?php } ?>
+					<?php _toolbar('copy') ?>
+					<?php _toolbar('rename') ?>
+				<?php } ?>
+				<?php _toolbar('reload') ?>
+			<?php } ?>
+			&nbsp;
+			<?php if ($rw) { ?>
+				<?php _toolbar('new') ?>
+			<?php } ?>
+			<?php _toolbar('list')   ?>
+			<?php _toolbar('search') ?>
+			<?php _toolbar('recent') ?>
+			&nbsp; <?php _toolbar('help') ?>
+			&nbsp; <?php _toolbar('rss10', 36, 14) ?>
+		</div>
+	<?php } // PKWK_SKIN_SHOW_TOOLBAR 
+	?>
+
+	<div id="sp-lastmodified">
+		<?php if ($lastmodified != '') { ?>
+			<div id="lastmodified">Last-modified: <?php echo $lastmodified ?><?php if ($is_freeze) { ?>&nbsp;<i class="fas fa-ban"></i><?php } ?></div>
+		<?php } ?>
+	</div>
+
+	<?php if ($related != '') { ?>
+		<div id="related">Link: <?php echo $related ?></div>
+	<?php } ?>
+
+	<div id="footer">
+		Founded by: <a href="<?php echo $modifierlink ?>"><?php echo $modifier ?></a>
+		<p>
+			HTML convert time: <?php echo elapsedtime() ?> sec.
+			Access via <?php filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? 'IPv6' : 'IPv4'; ?>.<br>
+			<?php echo S_COPYRIGHT ?>.
+			<!-- Powered by PHP <?php echo PHP_VERSION ?>. -->
+		</p>
+	</div>
+	<?php if (exist_plugin_convert('recaptcha3')) echo do_plugin_convert('recaptcha3'); // reCAPTCHA v3 plugin 
+	?>
 </body>
 <script type="text/javascript" src="<?php echo SKIN_DIR ?>adv_like.js"></script>
+
 </html>
