@@ -294,7 +294,7 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
 		Founded by: <a href="<?php echo $modifierlink ?>"><?php echo $modifier ?></a>
 		<p>
 			HTML convert time: <?php echo elapsedtime() ?> sec.
-			Access via <?php filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? 'IPv6' : 'IPv4'; ?>.<br>
+			Access via <?php echo filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? 'IPv6' : 'IPv4'; ?>.<br>
 			<?php echo S_COPYRIGHT ?>.
 			<!-- Powered by PHP <?php echo PHP_VERSION ?>. -->
 		</p>
