@@ -25,7 +25,7 @@ define('PLUGIN_RECENT_CACHE', CACHE_DIR . 'recent.dat');
 
 function plugin_recent_convert()
 {
-	global $vars, $date_format, $_recent_plugin_frame;
+	global $vars, $date_format, $_recent_plugin_frame, $top;
 	static $exec_count = 1;
 
 	$recent_lines = PLUGIN_RECENT_DEFAULT_LINES;
@@ -85,6 +85,11 @@ function plugin_recent_convert()
 	}
 	// End of the day
 	if ($date != '') $items .= '</ul>' . "\n";
+
+	// Add jumpmenu link to the top
+	if (preg_match('/<h[1-6]>/', $_recent_plugin_frame) === 1) {
+		$_recent_plugin_frame = $top . $_recent_plugin_frame;
+	}
 
 	return sprintf($_recent_plugin_frame, count($lines), $items);
 }

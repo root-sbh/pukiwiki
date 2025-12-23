@@ -1013,8 +1013,10 @@ class Body extends Element
 		$text = trim($text);
 		// Add 'page contents' link to its heading
 		$this->contents_last = & $this->contents_last->add(new Contents_UList($text, $level, $id));
-		// Add heding
-		return array($text . $anchor, $this->count > 1 ? "\n" . $top : '', $autoid);
+		// Add heading
+		// return array($text . $anchor, $this->count > 1 ? "\n" . $top : '', $autoid);
+		// Modified: Always add heading
+		return array($text . $anchor, "\n" . $top, $autoid);
 	}
 
 	function & insert(& $obj)
@@ -1025,7 +1027,8 @@ class Body extends Element
 
 	function toString()
 	{
-		global $vars;
+		// Modified: Add jumpmenu at the end of page
+		global $vars, $top;
 
 		$text = parent::toString();
 
@@ -1033,7 +1036,7 @@ class Body extends Element
 		$text = preg_replace_callback('/<#_contents_>/',
 			array(& $this, 'replace_contents'), $text);
 
-		return $text . "\n";
+		return $text . "\n" . $top . "\n";
 	}
 
 	function replace_contents($arr)

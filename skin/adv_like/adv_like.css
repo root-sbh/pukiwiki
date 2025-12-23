@@ -246,13 +246,14 @@ h2 + div.jumpmenu,
 h3 + div.jumpmenu,
 h4 + div.jumpmenu,
 h5 + div.jumpmenu,
-h6 + div.jumpmenu {
+h6 + div.jumpmenu,
+topicpath + div.jumpmenu {
 	display: none;
 }
 
-#menubar div.jumpmenu {
+/* #menubar div.jumpmenu {
 	display: none;
-}
+} */
 
 hr.full_hr {
 	border-style: ridge;
