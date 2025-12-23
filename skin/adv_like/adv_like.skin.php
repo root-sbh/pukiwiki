@@ -167,7 +167,7 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
 		</div>
 		<?php if ($menu) { ?>
 			<div id="menubar-outer">
-				<div id="menubar"><?php echo $menu ?></div>
+				<div id="menubar"><?php echo $menu ?><?php global $top; echo $top ?></div>
 			</div>
 		<?php } ?>
 		<?php if ($rightbar) { ?>
