@@ -356,6 +356,7 @@ div#contents {
 }
 
 div#menubar-outer {
+	display: flex;
 	order: 1;
 	width: 20%;
 	/* padding-right: 4px; */
@@ -501,6 +502,7 @@ div#body {
 	word-break: break-all;
 	font-size: 93%;
 	overflow: hidden;
+	padding: 0.25em 0;
 }
 
 #menubar ul {
@@ -568,8 +570,12 @@ div#body {
 #menubar form,
 #rightbar p,
 #rightbar form {
-	margin: 0;
+	margin: 0 0.5em;
 	padding: 0;
+}
+
+#menubar > div {
+	padding: 0 0.5em;
 }
 
 /* Hack calendar */
