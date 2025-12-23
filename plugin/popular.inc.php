@@ -29,7 +29,7 @@ define('PLUGIN_POPULAR_DEFAULT', 10);
 
 function plugin_popular_convert()
 {
-	global $vars;
+	global $vars, $top;
 	global $_popular_plugin_frame, $_popular_plugin_today_frame;
 
 	$max    = PLUGIN_POPULAR_DEFAULT;
@@ -73,5 +73,11 @@ function plugin_popular_convert()
 		$items .= '</ul>' . "\n";
 	}
 
-	return sprintf($today ? $_popular_plugin_today_frame : $_popular_plugin_frame, count($counters), $items);
+	// Add jumpmenu link to the top
+	$frame = $today ? $_popular_plugin_today_frame : $_popular_plugin_frame;
+	if (preg_match('/<h[1-6]>/', $frame) === 1) {
+		$frame = $top . $frame;
+	}
+
+	return sprintf($frame, count($counters), $items);
 }
