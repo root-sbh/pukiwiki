@@ -48,6 +48,7 @@ function calcContentsHeight() {
   if (window.matchMedia("(max-width: 768px)").matches) {
     $menubar_outer.css('top', header_height + "px");
     $menubar.css('height', window.innerHeight - header_height - ($menubar.innerHeight() - $menubar.height()) + "px");
+    $contents.css('scroll-margin-top', header_height + "px");
   } else {
     $menubar_outer.css('top', '');
     $menubar.css('height', 'auto');
