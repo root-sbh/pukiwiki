@@ -250,6 +250,10 @@ h6 + div.jumpmenu {
 	display: none;
 }
 
+#menubar div.jumpmenu {
+	display: none;
+}
+
 hr.full_hr {
 	border-style: ridge;
 	border-width: 1px 0;

@@ -57,3 +57,7 @@ function calcContentsHeight() {
 function calcLogoSize() {
   $logo.width($logo.outerHeight(true));
 }
+
+function scrollToTop() {
+  $(this).closest('#menubar').length > 0 ? $(this).closest('#menubar').children().first().scrollIntoView(true) : $('#contents').scrollIntoView(true);
+}
