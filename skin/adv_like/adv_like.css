@@ -35,7 +35,7 @@ blockquote {
 	box-shadow: 0 1px 6px; */
 }
 
-* {
+*:not(hr) {
 	margin-block-end: 0;
 }
 
@@ -236,7 +236,7 @@ a.note_super {
 }
 
 div.jumpmenu {
-	font-size: 60%;
+	font-size: 80%;
 	text-align: right;
 	user-select: none;
 }
