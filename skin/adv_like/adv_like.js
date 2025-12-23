@@ -39,8 +39,8 @@ function changeStyleSheet(mode) {
 }
 
 function calcContentsHeight() {
-  var navi_height = $spnavi.outerHeight(true);
-  var header_height = $spheader.outerHeight(true);
+  var navi_height = $spnavi.outerHeight();
+  var header_height = $spheader.outerHeight();
 
   $spnavi.css('margin-top', -navi_height - 1 + "px");
   $spnavi.css('top', (header_height - navi_height - 1) + "px");
