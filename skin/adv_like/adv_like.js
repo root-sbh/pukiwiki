@@ -48,10 +48,13 @@ function calcContentsHeight() {
   if (window.matchMedia("(max-width: 768px)").matches) {
     $menubar_outer.css('top', header_height + "px");
     $menubar.css('height', window.innerHeight - header_height - ($menubar.innerHeight() - $menubar.height()) + "px");
+    $menubar.css('scroll-padding-top', $menubar.css('padding-top'));
     $contents.css('scroll-margin-top', header_height + Number($contents.css('margin-top').replace('px', '')) + "px");
   } else {
     $menubar_outer.css('top', '');
     $menubar.css('height', 'auto');
+    $menubar.css('scroll-padding-top', '');
+    $contents.css('scroll-margin-top', '');
   }
 }
 
