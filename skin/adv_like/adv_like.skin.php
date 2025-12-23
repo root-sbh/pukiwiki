@@ -163,6 +163,7 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
 		<div id="body">
 			<div id="topicpath"><?php require_once(PLUGIN_DIR . 'topicpath.inc.php');
 								echo plugin_topicpath_inline(); ?></div><?php echo $body ?>
+			<?php global $top; echo $top ?>
 		</div>
 		<?php if ($menu) { ?>
 			<div id="menubar-outer">

@@ -1027,8 +1027,7 @@ class Body extends Element
 
 	function toString()
 	{
-		// Modified: Add jumpmenu at the end of page
-		global $vars, $top;
+		global $vars;
 
 		$text = parent::toString();
 
@@ -1036,7 +1035,7 @@ class Body extends Element
 		$text = preg_replace_callback('/<#_contents_>/',
 			array(& $this, 'replace_contents'), $text);
 
-		return $text . "\n" . $top . "\n";
+		return $text . "\n";
 	}
 
 	function replace_contents($arr)
