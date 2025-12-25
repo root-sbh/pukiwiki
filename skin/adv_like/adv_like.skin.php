@@ -299,9 +299,8 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
 			<?php echo S_COPYRIGHT ?>.
 			<!-- Powered by PHP <?php echo PHP_VERSION ?>. -->
 		</p>
+		<?php if (exist_plugin_convert('recaptcha3')) echo do_plugin_convert('recaptcha3'); // reCAPTCHA v3 plugin ?>
 	</div>
-	<?php if (exist_plugin_convert('recaptcha3')) echo do_plugin_convert('recaptcha3'); // reCAPTCHA v3 plugin 
-	?>
 </body>
 <script type="text/javascript" src="<?php echo SKIN_DIR ?>adv_like.js"></script>
 
