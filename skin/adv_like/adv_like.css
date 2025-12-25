@@ -56,18 +56,18 @@ h6 {
 	font-weight: 500;
 }
 
-h1 + *,
-h2 + *,
-h3 + *,
-h4 + *,
-h5 + *,
-h6 + *,
-h1 + div:first-child,
-h2 + div:first-child,
-h3 + div:first-child,
-h4 + div:first-child,
-h5 + div:first-child,
-h6 + div:first-child {
+#contents h1 + *,
+#contents h2 + *,
+#contents h3 + *,
+#contents h4 + *,
+#contents h5 + *,
+#contents h6 + *,
+#contents h1 + div:first-child,
+#contents h2 + div:first-child,
+#contents h3 + div:first-child,
+#contents h4 + div:first-child,
+#contents h5 + div:first-child,
+#contents h6 + div:first-child {
 	margin-block-start: 0.5em;
 }
 
