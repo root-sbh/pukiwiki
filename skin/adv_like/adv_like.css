@@ -245,6 +245,10 @@ div.jumpmenu {
 	user-select: none;
 }
 
+form:has(+ div.jumpmenu), div:has(+ div.jumpmenu) :last-child {
+	margin-bottom: 0 !important;
+}
+
 h1 + div.jumpmenu,
 h2 + div.jumpmenu,
 h3 + div.jumpmenu,
