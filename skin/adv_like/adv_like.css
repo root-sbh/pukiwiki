@@ -35,7 +35,7 @@ blockquote {
 	box-shadow: 0 1px 6px; */
 }
 
-*:not(hr) {
+#contents :not(hr, pre) {
 	margin-block-end: 0;
 }
 
@@ -601,14 +601,12 @@ div#body {
 
 #menubar p,
 #menubar form,
+#menubar div,
 #rightbar p,
-#rightbar form {
+#rightbar form,
+#rightbar div {
 	margin: 0 0.5em;
 	padding: 0;
-}
-
-#menubar > div {
-	padding: 0 0.5em;
 }
 
 /* Hack calendar */
