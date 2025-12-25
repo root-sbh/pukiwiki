@@ -71,6 +71,10 @@ h6 + div:first-child {
 	margin-block-start: 0.5em;
 }
 
+iframe {
+	display: block;
+}
+
 pre {
 	border: 1px solid;
 	border-radius: 4px;
