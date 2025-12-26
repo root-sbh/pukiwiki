@@ -246,15 +246,10 @@ div#topicpath + div.jumpmenu {
 	display: none;
 }
 
-hr.full_hr {
-	border-style: ridge;
-	border-width: 1px 0;
-}
-
+hr.full_hr,
 hr.note_hr {
 	border-style: ridge;
 	border-width: 1px 0;
-	text-align: center;
 }
 
 span.size1 {
