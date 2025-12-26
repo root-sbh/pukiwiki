@@ -20,7 +20,7 @@ ini_set('upload_max_filesize', '20M');
 define('PLUGIN_ATTACH_MAX_FILESIZE', (20 * 1024 * 1024)); // default: 20MB
 
 // 管理者だけが添付ファイルをアップロードできるようにする
-define('PLUGIN_ATTACH_UPLOAD_ADMIN_ONLY', TRUE); // FALSE or TRUE
+define('PLUGIN_ATTACH_UPLOAD_ADMIN_ONLY', FALSE); // FALSE or TRUE
 
 // 管理者だけが添付ファイルを削除できるようにする
 define('PLUGIN_ATTACH_DELETE_ADMIN_ONLY', TRUE); // FALSE or TRUE
