@@ -960,7 +960,7 @@ class Body extends Element
 			// Reset Block elements 
 			if (substr($line, 0, 1) == '/') {
 				$this->insert(new Reset($this, ''));
-				$this->last = & $this->last->add(Factory_Inline(substr($line, 1)));
+				if (strlen($line) > 1) $this->last = & $this->last->add(Factory_Inline(substr($line, 1)));
 				continue;
 			}
 
