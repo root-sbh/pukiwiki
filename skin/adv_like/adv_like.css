@@ -681,7 +681,8 @@ div#body {
 
 /* calendar_viewer.inc.php */
 div.calendar_viewer {
-  margin: 20px inherit 10px;
+	margin-top: 20px;
+	margin-bottom: 10px;
 	padding-bottom: 10px;
 }
 
@@ -962,15 +963,16 @@ div#sp-navigator {
 		margin-left: 0;
 	}
 
-  div#sp-lastmodified {
-    margin: 1% 8px 0;
-  }
+  	div#sp-lastmodified {
+  	  margin: 1% 8px 0;
+  	}
 
 	div#note,
 	hr.full_hr,
 	div#toolbar,
 	div#footer {
-    margin: inherit 8px inherit;
+    	margin-left: 8px;
+		margin-right: 8px;
 	}
 
 	div#menubar-outer {
