@@ -263,7 +263,8 @@ h3 + div.jumpmenu,
 h4 + div.jumpmenu,
 h5 + div.jumpmenu,
 h6 + div.jumpmenu,
-div#topicpath + div.jumpmenu {
+div#topicpath + div.jumpmenu,
+div.jumpmenu:first-child {
 	display: none;
 }
 
