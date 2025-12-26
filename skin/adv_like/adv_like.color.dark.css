@@ -403,7 +403,7 @@ span.diff_removed {
 
 /* hr.inc.php */
 hr.short_line {
-	border-color: #333333;
+	border-color: #ccc;
 }
 
 /* new.inc.php */
