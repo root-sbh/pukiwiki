@@ -31,14 +31,18 @@ blockquote {
 	margin: 0.5em auto 0.5em 32px;
 }
 
+blockquote blockquote {
+	margin-top: 0;
+}
+
 p {
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
 
 p.quotation {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 blockquote + p {
@@ -141,14 +145,12 @@ img {
 }
 
 ul {
-	margin-top: .5em;
-	margin-bottom: .5em;
 	line-height: 130%;
 }
 
-li {
-	margin-top: .5em;
-	margin-bottom: .5em;
+li > ul {
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 em {
@@ -779,6 +781,11 @@ span.new5 {
 
 /* comment.inc.php */
 /* pcomment.inc.php */
+._p_comment_form ul.list-indent1 {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
 ._p_comment_form textarea,
 ._p_pcomment_form textarea {
 	min-height: calc(1.4em * 4);

@@ -230,7 +230,7 @@ hr {
 
 hr.full_hr,
 hr.note_hr {
-	border-color: #333333;
+	border-color: #ccc;
 }
 
 /* ::-webkit-scrollbar {
