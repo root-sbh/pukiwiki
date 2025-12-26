@@ -28,7 +28,21 @@ a:not(.btn):not([role="presentation"]):hover {
 blockquote {
 	font-size: 100%;
 	line-height: 130%;
-	margin-left: 32px;
+	margin: 0.5em auto 0.5em 32px;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+p.quotation {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+blockquote + p {
+	margin-top: 0.5em;
 }
 
 #contents :not(hr, pre) {
@@ -130,6 +144,11 @@ ul {
 	margin-top: .5em;
 	margin-bottom: .5em;
 	line-height: 130%;
+}
+
+li {
+	margin-top: .5em;
+	margin-bottom: .5em;
 }
 
 em {
