@@ -166,6 +166,30 @@ function & Factory_Div(& $root, $text)
 	return new Paragraph($text);
 }
 
+// /
+// Reset Block elements
+class Reset extends Element
+{
+	function Reset(& $root, $text)
+	{
+		$this->__construct($root, $text);
+	}
+	function __construct(& $root, $text)
+	{
+		parent::__construct();
+	}
+
+	function canContain(& $obj)
+	{
+		return FALSE;
+	}
+
+	function toString()
+	{
+		return '';
+	}
+}
+
 // Inline elements
 class Inline extends Element
 {
@@ -930,6 +954,13 @@ class Body extends Element
 				} else {
 					$this->last = & $this;
 				}
+				continue;
+			}
+
+			// Reset Block elements 
+			if (substr($line, 0, 1) == '/') {
+				$this->insert(new Reset($this, ''));
+				$this->last = & $this->last->add(Factory_Inline($substr($line, 1)));
 				continue;
 			}
 
