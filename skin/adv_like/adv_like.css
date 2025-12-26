@@ -710,6 +710,11 @@ span.calendar_viewer_right {
 	float: right;
 }
 
+/* contents.inc.php */
+div.contents ul:not(:first-of-type) {
+	margin-top: 0;
+}
+
 /* edit.inc.php */
 .edit_form {
 	clear: both;
