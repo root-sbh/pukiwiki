@@ -96,6 +96,13 @@ define('IMAGE_DIR', 'image/');
 // ./IMAGE_DIR from index.php.
 
 /////////////////////////////////////////////////
+// Logo & favicon setting
+
+define('LOGO_IMG', IMAGE_DIR . 'icon.svg');
+define('FAVICON', IMAGE_DIR . 'favicon.ico');
+define('APPLE_TOUCH_ICON', IMAGE_DIR . 'apple-touch-icon.png'); //size:180x180
+
+/////////////////////////////////////////////////
 // Local time setting
 
 switch (LANG) { // or specifiy one

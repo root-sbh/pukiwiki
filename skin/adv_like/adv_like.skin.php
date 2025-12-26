@@ -13,8 +13,9 @@
 // Settings (define before here, if you want)
 
 // Set site identities
-$_IMAGE['skin']['logo']     = 'pukiwiki.png';
-$_IMAGE['skin']['favicon']  = ''; // Sample: 'image/favicon.ico';
+$_IMAGE['skin']['logo']     = defined('LOGO_IMG') ? LOGO_IMG : IMAGE_DIR . 'pukiwiki.png';
+$_IMAGE['skin']['favicon']  = defined('FAVICON') ? FAVICON : ''; // Sample: 'image/favicon.ico';
+$_IMAGE['skin']['apple-touch-icon'] = defined('APPLE_TOUCH_ICON') ? APPLE_TOUCH_ICON : ''; // Sample: 'image/apple-touch-icon.png';
 
 // SKIN_DEFAULT_DISABLE_TOPICPATH
 //   1 = Show reload URL
@@ -82,11 +83,15 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
 
 	<title><?php echo $title ?> - <?php echo $page_title ?></title>
 
-	<link rel="SHORTCUT ICON" href="<?php echo $image['favicon'] ?>" />
+	<?php if ($image['favicon'] != '') { ?>
+	<link rel="icon" href="<?php echo $image['favicon'] ?>" <?php if(substr($image['favicon'], -4) == '.svg') echo 'type="image/svg+xml" '; ?>/>
+	<?php } ?>
+	<?php if ($image['apple-touch-icon'] != '') { ?>
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo $image['apple-touch-icon'] ?>">
+	<?php } ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo SKIN_DIR ?>adv_like.css" />
-	<link id="colorstyle" rel="stylesheet" type="text/css" href="<?php echo SKIN_DIR ?>adv_like.color.light.css" />
-	<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $link['rss'] ?>" /><?php // RSS auto-discovery 
-																										?>
+	<link rel="stylesheet" type="text/css" id="colorstyle" href="<?php echo SKIN_DIR ?>adv_like.color.light.css" />
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $link['rss'] ?>" /><?php // RSS auto-discovery ?>
 	<script type="text/javascript">
 		const dir = "<?php echo SKIN_DIR ?>";
 	</script>
@@ -107,7 +112,7 @@ header('Content-Type: text/html; charset=' . CONTENT_CHARSET);
 
 	<div id="header">
 		<div id="header-logo">
-			<a href="<?php echo $link['top'] ?>"><img id="logo" src="<?php echo IMAGE_DIR . $image['logo'] ?>" alt="<?php echo $page_title ?>" title="<?php echo $page_title ?>" /></a>
+			<a href="<?php echo $link['top'] ?>"><img id="logo" src="<?php echo $image['logo'] ?>" alt="<?php echo $page_title ?>" title="<?php echo $page_title ?>" /></a>
 		</div>
 		<div id="header-title">
 			<label for="color_mode_switch" class="color_switch">
