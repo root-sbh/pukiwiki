@@ -397,6 +397,7 @@ div#menubar-outer {
 	display: flex;
 	order: 1;
 	width: 20%;
+	margin: 0;
 }
 
 #menubar ul li {
@@ -537,6 +538,7 @@ div#body {
 	word-break: break-all;
 	font-size: 93%;
 	overflow: hidden;
+	margin: 0;
 	padding: 0.25em 0;
 }
 
