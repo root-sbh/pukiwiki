@@ -49,7 +49,7 @@ blockquote + p {
 	margin-top: 0.5em;
 }
 
-#contents :not(hr, pre) {
+#contents :not(hr, pre, #menubar-outer, #menubar, #rightbar) {
 	margin-block-end: auto;
 }
 
