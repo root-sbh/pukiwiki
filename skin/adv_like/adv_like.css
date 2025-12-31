@@ -409,21 +409,6 @@ div#rightbar-outer {
 	width: 20%;
 }
 
-#menubar h1,
-#menubar h2,
-#menubar h3,
-#menubar h4,
-#menubar h5,
-#menubar h6,
-#rightbar h1,
-#rightbar h2,
-#rightbar h3,
-#rightbar h4,
-#rightbar h5,
-#rightbar h6 {
-	border: 1px solid;
-}
-
 div#body {
 	order: 2;
 	flex-grow: 1;
@@ -580,7 +565,7 @@ div#body {
 #rightbar h6 {
 	border: 1px solid;
 	box-shadow: none;
-	margin: 1px;
+	margin: 1px 1px 0.25em 1px !important;
 	padding: .2em;
 	text-align: center;
 }
