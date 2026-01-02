@@ -34,12 +34,7 @@ a:not(.btn):not([role="presentation"]):hover {
 	background-color: #CCDDEE;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+:is(h1, h2, h3, h4, h5, h6) {
 	background-image: -ms-linear-gradient(top, white, whitesmoke);
 	background-image: -moz-linear-gradient(top, white, whitesmoke);
 	background-image: -webkit-linear-gradient(top, white, whitesmoke);
@@ -93,23 +88,18 @@ q {
 	border-color: #999;
 }
 
-/* textarea, input, select {
+/* textarea,
+input,
+select {
 	
 } */
 
-/* blockquote{
-	border-color: #99CCFF;
-	box-shadow: #cce5ff;
-} */
-
-thead td.style_td,
-tfoot td.style_td {
+:is(thead, tfoot) td.style_td {
 	color: inherit;
 	background-color: #D0D8E0;
 }
 
-thead th.style_th,
-tfoot th.style_th {
+:is(thead, tfoot) th.style_th {
 	color: inherit;
 	background-color: #E0E8F0;
 }
@@ -222,10 +212,6 @@ hr.note_hr {
 	border-color: #333333;
 }
 
-/* ::-webkit-scrollbar {
-	background: gainsboro;
-} */
-
 ::-webkit-scrollbar-track {
 	background: whitesmoke;
 	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -243,8 +229,7 @@ hr.note_hr {
 	background-color: #effcff;
 }
 
-#header-title h1,
-#header-title h2 {
+#header-title :is(h1, h2) {
 	text-shadow: 1px 1px 3px rgba(0, 0, 0, .25);
 }
 
@@ -258,7 +243,7 @@ hr.note_hr {
 	background-color: #effcff;
 }
 
-div#sp-navigator {
+#sp-navigator {
 	background-color: #effcff;
 }
 
@@ -273,28 +258,15 @@ div#sp-navigator {
 	background: #bcddff;
 }
 
-input[type="checkbox"]#openMenubar:checked~div#sp-header>.menubarIconToggle {
-	background: #60afff;
-}
-
-input[type="checkbox"]#openNavibar:checked~div#sp-header>.navibarIconToggle {
+input[type="checkbox"]#openMenubar:checked ~ #sp-header > .menubarIconToggle,
+input[type="checkbox"]#openNavibar:checked ~ #sp-header>.navibarIconToggle {
 	background: #60afff;
 }
 
 /** MenuBar/Rightbar *******************************************************************************/
 
-#menubar h1,
-#menubar h2,
-#menubar h3,
-#menubar h4,
-#menubar h5,
-#menubar h6,
-#rightbar h1,
-#rightbar h2,
-#rightbar h3,
-#rightbar h4,
-#rightbar h5,
-#rightbar h6 {
+#menubar :is(h1, h2, h3, h4, h5, h6),
+#rightbar :is(h1, h2, h3, h4, h5, h6) {
 	border-color: #99CCFF;
 	background-color: #DDF0FF;
 	text-shadow: 0 0 2px #b2dbff, 0px 2px 0 white;
@@ -465,29 +437,3 @@ tr.bugtrack_state_undef td {
 .search-result-page-summary {
 	color: gray;
 }
-
-/* suckerfish.inc.php */
-/* .sf-menu {
-	background-color: CornflowerBlue;
-	border-color: RoyalBlue;
-}
-
-.sf-menu ul{
-	background-color: CornflowerBlue;
-	border-color: RoyalBlue;
-}
-
-.sf-menu li {
-	border-color: CornflowerBlue;
-}
-
-.sf-menu li:hover, .sf-menu li.sfHover{
-	color: midnightblue !important;
-	background-color: lightsteelblue;
-}
-
-.sf-menu li ul li:hover, .sf-menu li ul li.sfHover,
-.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
-	color: midnightblue !important;
-	background-color: lightsteelblue;
-} */
