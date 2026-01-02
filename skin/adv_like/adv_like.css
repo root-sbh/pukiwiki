@@ -478,7 +478,7 @@ input[type='checkbox']#color_mode_switch:checked ~ div .circle {
 
 #body form,
 #body figure {
-	margin: .5em 1.5em;
+	margin: .5em 0;
 }
 
 #note {
@@ -715,7 +715,7 @@ span.new5 {
 }
 
 :is(._p_comment_form, ._p_pcomment_form) ul.list-indent1 + div {
-	margin-top: 0.5em;
+	margin: 0.5em 1em 0;
 }
 
 :is(._p_comment_form, ._p_pcomment_form) textarea {
