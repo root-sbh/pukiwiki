@@ -81,10 +81,10 @@ function plugin_pcommentv_convert()
 		plugin_pcommentv_check_arg($arg, $params);
 
 	$vars_page = isset($vars['page']) ? $vars['page'] : '';
-	if (isset($params['_args'][0]) && $params['_args'][0] != '') {
+	$raw_vars_page = strip_bracket($vars_page);
+	if (isset($params['_args'][0]) && $params['_args'][0] != '' && $params['_args'][0] != $raw_vars_page) {
 		$page = $params['_args'][0];
 	} else {
-		$raw_vars_page = strip_bracket($vars_page);
 		$page = sprintf(PLUGIN_PCOMMENTV_PAGE, $raw_vars_page);
 		$raw_page = strip_bracket($page);
 		if (!is_page($raw_page)) {
