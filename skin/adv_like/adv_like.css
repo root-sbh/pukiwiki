@@ -13,6 +13,10 @@
 	text-shadow: none;
 }
 
+body {
+	margin: 0.5% 1%;
+}
+
 a:not(.btn):not([role="presentation"]) {
 	text-decoration: none;
 	-ms-transition: .2s ease-in-out;
@@ -327,8 +331,7 @@ span.size7 {
 
 .color_switch {
 	position: absolute;
-	top: 16px;
-	right: 16px;
+	right: 1%;
 	display: flex;
 	align-items: center;
 }
@@ -423,7 +426,6 @@ div#body {
 
 /** Header and Footer *****************************************************************************/
 #header {
-	margin: 1% 1% 0 1%;
 	display: flex;
 }
 
@@ -474,7 +476,6 @@ div#body {
 #footer {
 	clear: both;
 	font-size: 77%;
-	margin: 0px 1% 1% 1%;
 }
 
 /** Main Content area *****************************************************************************/
