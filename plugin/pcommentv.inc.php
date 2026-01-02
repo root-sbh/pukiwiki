@@ -112,7 +112,9 @@ function plugin_pcommentv_convert()
 
 	list($comments, $digest) = plugin_pcommentv_get_comments($_page, $count, $dir, $params['reply']);
 
-	$form_start = $form = $form_end = '';
+	$form_start = '<div class="_p_pcomment_form">' . "\n";
+	$form = '';
+	$form_end = '</div>' . "\n";
 
 	if (! is_page($_page)) {
 		$link   = make_pagelink($_page);
