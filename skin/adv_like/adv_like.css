@@ -50,7 +50,6 @@ blockquote + p {
 }
 
 #contents :not(h1, h2, h3, h4, h5, h6, hr, pre, #topicpath, #menubar-outer, #menubar, #rightbar) {
-	margin-block-start: 0.5em;
 	margin-block-end: auto;
 }
 
