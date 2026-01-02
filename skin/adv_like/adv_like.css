@@ -709,12 +709,7 @@ span.new5 {
 
 /* comment.inc.php */
 /* pcomment.inc.php */
-:is(._p_comment_form, ._p_pcomment_form) ul.list-indent1 {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-:is(._p_comment_form, ._p_pcomment_form):last-child {
+:is(._p_comment_form, ._p_pcomment_form) > :is(ul.list-indent1, div) {
 	margin: 0.5em 1em 0;
 }
 
